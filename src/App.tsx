@@ -1,23 +1,7 @@
 import React from "react";
 import "./App.scss";
 import ElementIcon from "./ElementIcon";
-// import "./assets/ba"
-
-// "./src/assets/babel.svg"
-// "./src/assets/cra.svg"
-// "./src/assets/css.svg"
-// "./src/assets/eslint.svg"
-// "./src/assets/html.svg"
-// "./src/assets/js.svg"
-// "./src/assets/mu.svg"
-// "./src/assets/prettier.svg"
-// "./src/assets/react-bootstrap.svg"
-// "./src/assets/react-router.svg"
-// "./src/assets/react.svg"
-// "./src/assets/redux.svg"
-// "./src/assets/ts.svg"
-// "./src/assets/webpack.svg"
-// "./src/assets/sass.svg"
+import shuffleArray from "./shuffle-array";
 
 const paths = [
   "https://d33wubrfki0l68.cloudfront.net/7a197cfe44548cc1a3f581152af70a3051e11671/78df8/img/babel.svg",
@@ -37,10 +21,27 @@ const paths = [
   "https://sass-scss.ru/assets/img/logos/logo-b6e1ef6e.svg",
 ];
 
+const createRandomUrlArray = (array: string[]): string[] => {
+  const sizeTable = 40;
+  const iterations = Math.ceil(sizeTable ** 2 / array.length);
+  let resultArray: string[] = [];
+
+  for (let index = 0; index < iterations; index += 1) {
+    const randomArray = shuffleArray(array);
+
+    resultArray = resultArray.concat(randomArray);
+  }
+
+  console.log(resultArray);
+  return resultArray;
+};
+
 const App: React.FC = () => {
+  const iconsUrl = createRandomUrlArray(paths);
+
   return (
     <div className="wrapper">
-      {paths.map((item) => {
+      {iconsUrl.map((item) => {
         return <ElementIcon url={item} />;
       })}
     </div>

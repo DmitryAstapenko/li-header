@@ -1,7 +1,11 @@
 .element-icon {
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 10%;
+  box-shadow: 0px 4px 2px #e6e6e6, 0 6px 8px #bbb;
   
   & > img {
     width: 2rem;
