@@ -32,7 +32,6 @@ const createRandomUrlArray = (array: string[]): string[] => {
     resultArray = resultArray.concat(randomArray);
   }
 
-  console.log(resultArray);
   return resultArray;
 };
 
